@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Transcript Analysis Tool {% endblock %}
+{% block content %}
+<!-- Searching Bar -->
+<div class="container">
+    <div class="card mt-3">
+        <div class="card-header fs-5 fw-bold">
+            Search
+        </div>
+        <div id="message"> </div>
+        <div class='card-body'>
+            <form id="ajax_form">
+                <label for="gene_id" class="form-label">Please enter a Gene ID or Transcript ID:</label>
+                <input type="text" class="form-control" name="gene_id" placeholder="eg. WBGene00000010"> 
+            </form>
+            <hr>
+            <button class="btn btn-outline-primary" id="submit"> Send </button>
+            <button class="btn btn-outline-primary" id="reset" style="display:none;"> Reset </button>
+        </div>
+    </div> 
+</div>
+<br>
+<br>
+
+<!-- Search Result-->
+<div id="searchTbl" style="display:none">
+    <table class="table table-responsive table-hover table-striped">
+        <thead class="mb-5 head-color text-light">
+            <tr>
+                <th scope="col" class="text-center">Gene ID </th>
+                <th scope="col" class="text-center">Transcript ID</th>
+                <th scope="col" class="text-center">Number of Transcripts</th>
+            </tr>
+        </thead>
+        <tbody id="searchData">
+           
+        </tbody>
+    </table>
+</div>
+<script src="{% static 'js/WebJava.js' %}" > </script>
+<div id="graph1">
+    <script src="{%static 'js/graph.js' %}"> </script>
+</div>
+{% endblock %}	
+

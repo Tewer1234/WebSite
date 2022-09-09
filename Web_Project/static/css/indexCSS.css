@@ -1,0 +1,11 @@
+
+.table1 , .table2{
+    height: 500px;
+    overflow-y: auto;
+    direction:ltr; 
+}
+
+td{
+    height:60px;
+}
+

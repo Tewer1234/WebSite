@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/x-icon" href="{% static 'images/tech.ico' %}">
+        <link rel="stylesheet" href="{% static 'css/WebCSS.css/' %}">
+        <!-- Bootstrap CSS & JS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- D3.js -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+
+        <title> {% block title %} {% endblock %} </title>
+    </head>
+    <body>
+        <header class="pb-3 mb-5 bg-image">
+        </header>
+        <h2 class="bg-txt"> Transcript Analysis </h2>
+        {% csrf_token %}
+        <script> csrf_token = "{{ csrf_token }}" </script>
+        {% block content %} {% endblock content %}
+        <footer class="py-3 mt-5 text-center text-light bg-dark border-top">
+            Created by Tewer &copy; 2022
+        </footer>
+    </body>
+</html>
+        

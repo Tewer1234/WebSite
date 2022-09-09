@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/x-icon" href="{% static 'images/tech.ico' %}">
+        <link rel="stylesheet" href="{% static 'css/indexCSS.css/' %}">
+        <!-- Bootstrap CSS & JS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head> 
+    <body>
+    <h2 class="text-center"> Here is your result! </h2>
+    <div class="row">
+            <div class="container-responsive table1 col-sm-6">
+                <table class="table table-responsive table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Name </th>
+                            <th> Start </th>
+                            <th> End </th>
+                            <th> Length </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for gene in h1 %}
+                        <tr>
+                            <th> {{ forloop.counter }} </th>
+                            <td> {{ gene.Name }} </td>
+                            <td>{{ gene.Start }}</td>
+                            <td>{{ gene.End }}</td>
+                            <td>{{ gene.Length }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-responsive graph1 col-sm-6">
+                <script src="{% static 'js/graph.js' %}"> </script>
+            </div>
+        </div>
+
+        <div id="row">
+            <div class="container-responsive table2 col-sm-6">
+                <table class="table table-responsive table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Name </th>
+                            <th> Start </th>
+                            <th> End </th>
+                            <th> Length </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for gene in h2 %}
+                        <tr>
+                            <th> {{ forloop.counter }} </th>
+                            <td> {{ gene.Name }} </td>
+                            <td>{{ gene.Start }}</td>
+                            <td>{{ gene.End }}</td>
+                            <td>{{ gene.Length }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+             </div>
+        </div>
+
+
+        <p class="display-4"> Conceptual Translation {{tempdf2|length}}aa</p>
+        <style>
+            td {
+                font-size:20px;
+            }
+        </style>
+        <table class="table table-responsive">
+            <tbody>
+                {% for cds in h3 %}
+                <tr>
+                    <td> {{ cds.cds1 }} </td>
+                    <td>{{ cds.cds2 }}</td>
+                    <td>{{ cds.cds3 }}</td>
+                    <td>{{ cds.cds4 }}</td>
+                    <td>{{ cds.cds5 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
