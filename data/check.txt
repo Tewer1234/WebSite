@@ -1,0 +1,4 @@
+                                         Gene_ID  ... Protein_Length_(aa)
+WBGene00000005  [WBGene00000005, WBGene00000005]  ...         [None, 526]
+
+[1 rows x 8 columns]
