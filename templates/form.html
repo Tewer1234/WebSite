@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <title> Results </title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/x-icon" href="{% static 'images/tech.ico' %}">
+        <link rel="stylesheet" href="{% static 'css/indexCSS.css/' %}">
+        <!-- Bootstrap CSS & JS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script> csrf_token = "{{ csrf_token }}" </script>
+    </head> 
+    <body>
+    
+        <!-- Title-->
+        <header class="bg-img">
+            <h2 class="text-light"> Transcript Analysis </h2>
+        </header>
+        <br>
+        {% for gene in h1 %}
+            {% if gene.Length == 0 %}
+                <h1 id="tits" class="pt-3 text-center">  {{gene.Type}} <h1>
+            {%endif%}
+        {% endfor %}
+        <hr>
+
+    <!-- Unspliced Table-->
+    <div  class="container-responsive table1 col-sm-6">
+        <table id="t1" class="table table-responsive table-striped table-hover">
+            <caption id="c1"> Unspliced UTR Sequence </caption>
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th> Type </th>
+                    <th> Start </th>
+                    <th> End </th>
+                    <th> Length </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gene in h1 %}
+                    {% if gene.Length > 0 %}
+                        <tr>
+                            <th> {{ forloop.counter }} </th>
+                            <td> {{ gene.Type }} </td>
+                            <td>{{ gene.Start }}</td>
+                            <td>{{ gene.End }}</td>
+                            <td>{{ gene.Length }}</td>
+                        </tr>
+                    {%endif%}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Spliced Table-->
+    <div class="container-responsive table2 col-sm-6">
+        <table id="t2" class="table table-responsive table-striped table-hover">
+            <caption id="c2"> Spliced UTR Sequence </caption>
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th> Name </th>
+                    <th> Start </th>
+                    <th> End </th>
+                    <th> Length </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gene in h2 %}
+                <tr>
+                    <th> {{ forloop.counter }} </th>
+                    <td> {{ gene.Type }} </td>
+                    <td>{{ gene.Start }}</td>
+                    <td>{{ gene.End }}</td>
+                    <td>{{ gene.Length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+
+    <!-- piRNA Table -->
+    <div class="row pb-5">
+        <div id="legend" class="col text-right float-right mx-5" style="font-size:large">
+            <div id="non-GU" style="display:inline-block;border:1px solid black;background-color:yellow;">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            &nbsp;
+            <span class="text-dark" style="font-size:30px"><b>non-GU mismatch</b></span>
+
+            <div id="GU" style="display:inline-block;border:1px solid black;background-color:lightblue;">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            &nbsp;
+            <span class="text-dark" style="font-size:30px"><b>GU mismatch</b></span>
+
+            <div id="first_pos" style="display:inline-block;border:1px solid black;background-color:lightgreen;">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            &nbsp;
+            <span class="text-dark" style="font-size:30px"><b>mismatch at the 1st position of piRNA</b></span>
+
+            <div class="text-danger" style="display:inline-block;">|&nbsp;&nbsp;|</div>
+            &nbsp;
+            <span class="text-dark" style="font-size:30px"><b>&nbsp;seed region&nbsp;</b></span>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <table id="t3" class="table table-responsive table-striped table-hover" role="grid">
+            <caption id="c2" style="font-size:30px;text-align:center"> piRNA Target Scan </caption>
+            <thead>
+                <tr>
+                    {% comment %} <th> # </th> {% endcomment %}
+                    <th> piRNA Name</th>
+                    <th> Targeted Region in Input Sequence </th>
+                    <th> Mismatches </th>
+                    <th> Position in piRNA </th>
+                    <th> # non-GU Mismatches in Seed Region </th>
+                    <th> # GU Mismatches in Seed Region </th>
+                    <th> # non -GU Mismatches in non-Seed Region </th>
+                    <th> # GU Mismatches in non-Seed Region </th>
+                    <th> Reversed piRNA Sequence </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if piRNA|length > 0%}
+                    {% for each in piRNA %}
+                    <tr>
+                        <td> {{ each.name }} </td>
+                        <td>{{ each.pos }}</td>
+                        <td>{{ each.mismatch }}</td>
+                        <td id="mismatchPos">
+                            {{each.misPos|safe}}
+                        </td>
+                        <td>{{ each.nonGUseedRegionnum }}</td>
+                        <td>{{ each.GUseedRegionnum }}</td>
+                        <td>{{ each.nonSeednonGUnum }}</td>
+                        <td>{{ each.nonSeedGUnum }}</td>
+                        <td width:"350px" class="py-5">
+                            {{ each.site|safe }}
+                            <br>
+                            <br>
+                            {{each.piRNAdetail|safe}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="12"> none </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+            
+        </div>
+    </div>
+
+    <div class="card-body">
+        <table id="t3" class="table table-responsive table-striped table-hover" role="grid">
+            <caption id="c2" style="font-size:30px;text-align:center"> piRNA Abundance </caption>
+            <thead>
+                <tr id="abundance">
+                    <th> piRNA </th>
+                    <th> Tang.smallRNA [1] </th>
+                    <th> Tang.PRG-1IP [1] </th>
+                    <th> Gu.PRG-IP	[2] </th>
+                    <th> Lee small RNA	[3] </th>
+                    <th> Lee small RNAs_prg-1_mutant [3] </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if piAbundance|length > 0 %}
+                    {% for each in piAbundance %}
+                        <tr>
+                            <td> {{ each.name }} </td>
+                            <td> {{ each.Tang_smallRNA1}} </td>
+                            <td> {{ each.Tang_PRG_1IP1}} </td>
+                            <td> {{ each.Gu_PRG_IP2 }} </td>
+                            <td> {{ each.Lee_small_RNA3 }} </td>
+                            <td> {{ each.Lee_small_RNAs_prg_1_mutant3 }} </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                        <tr>
+                            <td colspan="12"> none </td>
+                        </tr>
+                {% endif %}
+            </tbody>
+        </table>
+            
+        </div>
+    </div>
+
+
+
+        <p class="display-4"> Protein Sequence </p>
+        <style>
+            td {
+                font-size:20px;
+            }
+        </style>
+        <table class="table table-responsive">
+            <tbody>
+                {% for cds in h3 %}
+                <tr>
+                    <td> {{ cds.0 }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+    <div id="graph">
+        <svg width="500" height="400"></svg>
+        
+    </div>
+    <script src="{%static 'js/graph.js' %}"></script>
+    <footer style="font-size:20px" class="py-3 mt-5 text-center text-light bg-dark border-top">
+        Created by Tewer &copy; 2022
+    </footer>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Transcript Analysis Tool {% endblock %}
+{% block content %}
+<!-- Searching Bar -->
+{% comment %} <div class="container">
+    <div class="card mt-3">
+        <div class="card-header fs-5 fw-bold">
+            mRna Search
+        </div>
+        <div id="message"> </div>
+        <div class='card-body'>
+            <form id="ajax_form">
+                <label for="gene_id" class="form-label">Please enter a Gene ID or Transcript ID:</label>
+                <input type="text" class="form-control" name="gene_id" placeholder="eg. WBGene00000010"> 
+            </form>
+            <hr>
+            <button class="btn btn-outline-primary" id="submit"> Send </button>
+            <button class="btn btn-outline-primary" id="reset" style="display:none;"> Reset </button>
+        </div>
+    </div> 
+</div>
+<br>
+<br>
+
+<!-- Search Result-->
+<div id="searchTbl" style="display:none">
+    <table class="table table-responsive table-hover table-striped">
+        <thead class="mb-5 head-color text-light">
+            <tr>
+                <th scope="col" class="text-center">Gene ID </th>
+                <th scope="col" class="text-center">mRNA Isoforms</th>
+                <th scope="col" class="text-center">Number of Transcripts</th>
+            </tr>
+        </thead>
+        <tbody id="searchData">
+           
+        </tbody>
+    </table>
+</div>
+<br>
+<hr>
+<br>
+<script src="{% static 'js/WebJava.js' %}" > </script> {% endcomment %}
+
+<br>
+<br>
+<!-- Non-Coding Search Bar -->
+    <div id="searchMethod" class="container">
+        <div class="card mt-3">
+            <div class="card-header fs-5 fw-bold">
+                nCoding Search
+        </div>
+            <div id="message2"> </div>
+            <div class="card-body">
+            <form id="ajax_form2">
+                    <label for="gene_id2" class="form-label">Please enter a Gene ID or Transcript ID:</label>
+                    <input type="text" class="form-control" name="gene_id2" placeholder="eg. WBGene00000010">
+            </form>
+                <hr>
+                <button class="btn btn-outline-primary" id="submit2"> Send </button>
+                <button class="btn btn-outline-primary" id="reset2" style="display:none;"> Reset </button>
+            </div>
+    </div>
+</div>
+<br>
+<br>
+<hr>
+
+
+<div id="browseMethod" class="container">
+        <div class="card mt-3">
+            <div class="card-header fs-5 fw-bold">
+                nCoding Browse
+        </div>
+        <div class="card-body">
+            Transcript Type:
+                <form class="mt-3" id="browse_form">
+                    <select name="transcriptType" id="type">
+                    <option value="Codingtranscript">Coding Transcript</option>
+                    <option value="noncodingtranscript">non Coding Transcript</option>
+                    <option value="scRNA">scRNA</option>
+                    <option value="snRNA">snRNA</option>
+                    <option value="snoRNA">snoRNA</option>
+                    <option value="tRNA">tRNA</option>
+                    <option value="rRNA">rRNA</option>
+                    <option value="ncRNA">ncRNA</option>
+                    <option value="7kncRNA">7kncRNA</option>
+                    <option value="asRNA">asRNA</option>
+                    <option value="circRNA">circRNA</option>
+                    <option value="lincRNA">lincRNA</option>
+                    <option value="piRNA">piRNA</option>
+                    <option value="miRNA">miRNA</option>
+                    <option value="miRNAprimarytranscript">miRNA primary transcript</option>
+                    <option value="premiRNA">pre miRNA</option>
+                    <option value="TransposonncRNA">Transposon ncRNA</option>
+                    <option value="Transposon-mRNA">Transposon-mRNA</option>
+                    <option value="TransposonPseudogene">Transposon Pseudogene</option>
+                    <option value="Pseudogene">Pseudogene</option>
+                    <option value="rRNApseudogene">rRNA pseudogene</option>
+                    <option value="tRNApseudogene">tRNA pseudogene</option>
+                    </select>
+            </form>
+            <button class="btn btn-outline-primary mt-3" id="browseSubmit" type="submit"> Send </button>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/browseJava.js' %}"> </script>
+
+{% comment %} Browse Table {% endcomment %}
+
+<section id="cnt" class="pagination-container"  style="display:none">
+    <br>
+    <p> View item in a page</p>
+    <select name="state" id="maxRows" class="form-control">
+        <option value="0" selected disabled> Select </option>
+        <option value="5"> 5 </option>
+        <option value="10"> 10 </option>
+        <option value="20"> 20 </option>
+        <option value="100"> 100 </option>
+        <option value="200"> 200 </option>
+        <option value="500"> 500 </option>
+        <option value="1000"> 1000 </option>
+    </select>
+
+    
+
+</section>
+
+<div id="browseTbl" style="display:none">
+    <br>
+    <br>
+    <table class="table table-responsive table-hover table-striped">
+        <thead id="browseHead" class="mb-5 head-color text-light">
+            <tr>
+                <th scope="col" class="text-center">Gene ID</th>
+                <th scope="col" class="text-center">Status</th>
+                <th scope="col" class="text-center">Sequence</th>
+                <th scope="col" class="text-center">Gene Name</th>
+                <th scope="col" class="text-center">Other Name</th>
+                <th scope="col" class="text-center">Transcript</th>
+                <th scope="col" class="text-center">Type</th>
+            </tr>
+        </thead>
+        <tbody id="browseBody">
+            
+        </tbody>
+    </table>
+   </div>
+
+   <div class="row" style="float:right">
+        <div class="col">
+            <button class="btn btn-outline-primary mt-3 px-3 mx-3" id="prev" style="display: none;"> Prev</button>
+        </div>
+
+        <div class="col">
+            <p class="mt-3" style="display:none" id="pageNumber"></p>
+        </div>
+
+        <div class="col">
+            <button class="btn btn-outline-primary mt-3 px-3 mx-3" id="next" style="display: none;"> Next</button>
+        </div>
+    </div>
+<!-- non Coding Search Result-->
+<script src="{% static 'js/WebJava2.js' %}" > </script>
+<div id="basicInfo" style="display:none">
+    <table class="table table-responsive table-hover table-striped">
+        <thead class="mb-5 head-color text-light">
+            <tr>
+                <th scope="col" class="text-center">Gene ID</th>
+                <th scope="col" class="text-center">Status</th>
+                <th scope="col" class="text-center">Sequence</th>
+                <th scope="col" class="text-center">Gene Name</th>
+                <th scope="col" class="text-center">Other Name</th>
+                <th scope="col" class="text-center">Transcript</th>
+                <th scope="col" class="text-center">Type</th>
+                <th scope="col" class="text-center">Transcript Count</th>
+            </tr>
+        </thead>
+        <tbody id="basicData">
+        </tbody>
+    </table>
+</div>
+
+<div id="searchTbl2" style="display:none">
+    <div class="text-center" id="head"> </div>
+    <br>
+    <table class="table table-responsive table-hover table-striped">
+        <thead class="mb-5 head-color text-light">
+            <tr>
+                {% comment %} <th scope="col" class="text-center">Gene ID </th>
+                <th scope="col" class="text-center">Gene </th> {% endcomment %}
+                <th scope="col" class="text-center">Transcript</th>
+                <th scope="col" class="text-center">Transcript Length (nt)</th>
+                <th scope="col" class="text-center">Type</th>
+                <th scope="col" class="text-center">Coding Sequence (CDS)</th>
+                <th scope="col" class="text-center">Coding Sequence Length (nt)</th>
+                <th scope="col" class="text-center">Protein</th>
+                <th scope="col" class="text-center">Protein Length (aa)</th>
+            </tr>
+        </thead>
+            <tbody id="searchData2">
+            
+            </tbody>
+    </table>
+</div>
+<br>
+<hr>
+<br>
+
+{% endblock %}	
+
