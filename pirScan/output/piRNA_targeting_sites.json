@@ -1,0 +1,165 @@
+{
+    "gene": "AAUGAGCACAACACCUGGAACUCCUCAUGGAGUCACUCAUAGUCUUAUGGAACAAGGAUGGUACUGGGCUGAUGCUGAUAGAUCUGCAGUUUCGAAAGCACUUUCUGAUCAACCUGAUGGAUCAUUUAUUGUGAGAAAUGCUAGUACACCUGGAGAUUAUACACUUUCUGUGAAAUUUGCCGCCCAAGUGAAACUUCUCCGAAUCGUUGUUAAAGAUGGAAAAUGCGGAUUCAAUACAGAUUCAUUAACUCACGAUUCUGUUGUCAGAUUAAUUGAAUUUCAUCGAAAUAUUUCUCUCAAUAUUUUCAAUGAUGCACUUGAUGUUCGUCUUUUAUAUCCAGUUUCUGUUCGUCGUAACUCUCAAAAUGGAAAACCAUUUUUCAAGAAGGGGCAACUUCAGCAGCGUAUGAUUCUCAGUGCAAAAAAUGAUCAUGAUUGGAGAGAACGCUUGGAAAUGGAAAAUUUGAGAGCAGUACAUUUGGCAUUUGAGAGAGGAGCCAAGCUAUAUGAUUCAGCUCAUCAAGAAAUGGAACGAGCUGAAAGUCUCUAUCAUGCUUUGAAUCAAUCAGUUCGGGACAAUGAGAUUAAACUUGGAAAACUGAAUAAUUUGUUAGAAGCUGAAACAGACGUCGUUACACAAAUACAGGGAUCGCAGACAACAAGUGAAAUGCUCAAAGGAGCAUUUGCAAAUAAUAAGACAUUUGUGGAAGAAAGUAUUCGACGAAUAAACACUGAACUGACGUCAUCAAAGGAUAAGAAAAAGACGCUCUCCGGAAUUUUGGAUGAAAUCGCGAUGAAAAGAUCCAAUUCAAAAACACGACUCUGCAAGCUUAUGGAACUUCGUAGUGCAGUCUAUGAUAAAAUGGAACCAGCACUUUGUUCGAGAAUGGCUGCAAUGCUUGAUGCUGGAGCGGAAAUGAUAAACAGUGAGCCAACGAAAGUCACUCAACUUCUUGUCGAUAUGGAAUUGAAGUGGACACCGGCACAAUAUUUGAUGUGUGGAACUUCUAAGGAAAAUGCUGCGAAUGCUCUGAUUCAUGCUCGCUAUCGGAUCGCUCAACUUGACAAGGCUGUUGGAUUGAAAAGAGAGCCACAAGAUGGUAUUUUCUUGAUUCGAGGAUCCUCUUCUCAUGGUGAUAAGCUCGUAUUGAGUGUACUUCACGGAGAACGUGUCUCACAUUGUCUAAUCGAACAAAACGAAGAAGGAUGGGGAUUCGAGCACAGCAAUGUCUACCUGACAACUAUAAGUGACUUCGUUCGCUAUUACUCUCACUUCAGUCUUGAAACCCACGCGGAUGCUAUCAAAACUCCACUUCGUACGCCCGCAUUUGACGCUGUCACAAGUGAUACUUCAAAACCUCUUCGUAACGGACCCGGACAAGUUUUUACGGCUUUGCCAAUAUCCAGGAAAUAUAUGGAGAAGGCUCUUCUCACUGAUGAUCCCACUAAGCCACCUGAAUCACCGGAACCAAGACCGGAUUCAUGGGAUUCUCCAUCUCCGGAUACUCCUUCAUCAUCUGAUUCCCGAUUGGUUCAUCCAACUACUCUUCCUAAAUCCAUCCCGGAAUAGUUAUAUAUUUAAAUCAAUUACUUACAUAUACUCGGUUCAAUUACAUCCACUUGUCCCCCAUCCGAUCUGAUAGUAAACCCACAGUUCUCUGAUCACUUUCUUCUAAGUUACUUACGUUUUAUUUGUGUCUUAAAUGUAUUUAUUAUCAGUAUUUAUAUGAAUUGUCAAAUUGUACAUUUAUUGAUAUAAAUUCAAAUCCGUCGGCGGUUCAUCCGCGUAUUAAAUCGCACAACAUU",
+    "name": "Y110A7A.10.1_spliced+UTR",
+    "newout": [
+        [
+            "21ur-14521",
+            "1571-1591",
+            6,
+            "<mark id='g'>1</mark>,<mark id='b'>4</mark>,<mark id='b'>8</mark>,<mark>11</mark>,<mark id='b'>12</mark>,<mark>19</mark>",
+            "1,11,19",
+            0,
+            1,
+            2,
+            2,
+            "<span style=\"white-space:nowrap\">5' UUAUAUAUUUAAAU<span id='L'>|</span>CAAUUA<span id='L'>|</span>C 3'",
+            "3' AA<mark>G</mark>AUAUAA<mark id='b'>G</mark><mark>G</mark>UU<mark id='b'>G</mark><span id='L'>|</span>GUU<mark id='b'>G</mark>AU<span id='L'>|</span><mark id='g'>U</mark> 5'</span>",
+            [
+                "0",
+                "0.55280871",
+                "0.375257755",
+                "0",
+                "0"
+            ],
+            "AAGAUAUAAGGUUGGUUGAUU",
+            "01571",
+            1.5
+        ],
+        [
+            "21ur-7760",
+            "275-295",
+            6,
+            "<mark id='g'>1</mark>,<mark id='b'>7</mark>,<mark>10</mark>,<mark id='b'>11</mark>,<mark>18</mark>,<mark id='b'>21</mark>",
+            "1,10,18",
+            0,
+            1,
+            2,
+            2,
+            "<span style=\"white-space:nowrap\">5' GAAUUUCAUCGAAA<span id='L'>|</span>UAUUUC<span id='L'>|</span>U 3'",
+            "3' <mark id='b'>U</mark>UU<mark>U</mark>AAGUAG<mark id='b'>U</mark><mark>G</mark>UU<span id='L'>|</span><mark id='b'>G</mark>UAAAG<span id='L'>|</span><mark id='g'>U</mark> 5'</span>",
+            [
+                "0.539480825",
+                "14.92583518",
+                "11.25773266",
+                "0.598839545",
+                "0"
+            ],
+            "UUUUAAGUAGUGUUGUAAAGU",
+            "00275",
+            1.5
+        ],
+        [
+            "21ur-6635",
+            "605-625",
+            4,
+            "<mark>9</mark>,<mark id='b'>12</mark>,<mark>13</mark>,<mark id='b'>18</mark>",
+            "9,13",
+            0,
+            0,
+            2,
+            2,
+            "<span style=\"white-space:nowrap\">5' AAUUUGUUAGAAGC<span id='L'>|</span>UGAAAC<span id='L'>|</span>A 3'",
+            "3' UUA<mark id='b'>G</mark>ACAA<mark>A</mark><mark id='b'>U</mark>UU<mark>A</mark>G<span id='L'>|</span>ACUUUG<span id='L'>|</span>U 5'</span>",
+            [
+                "0.269740413",
+                "20.45392229",
+                "4.378007144",
+                "3.593037269",
+                "0"
+            ],
+            "UUAGACAAAUUUAGACUUUGU",
+            "00605",
+            3.0
+        ],
+        [
+            "21ur-15360",
+            "14-34",
+            6,
+            "<mark id='g'>1</mark>,<mark id='b'>7</mark>,<mark>11</mark>,<mark id='b'>17</mark>,<mark id='b'>19</mark>,<mark>21</mark>",
+            "1,11,21",
+            0,
+            1,
+            2,
+            2,
+            "<span style=\"white-space:nowrap\">5' CCUGGAACUCCUCA<span id='L'>|</span>UGGAGU<span id='L'>|</span>C 3'",
+            "3' <mark>C</mark>G<mark id='b'>G</mark>C<mark id='b'>U</mark>UUGAG<mark>A</mark>AGU<span id='L'>|</span><mark id='b'>G</mark>CCUCA<span id='L'>|</span><mark id='g'>U</mark> 5'</span>",
+            [
+                "0",
+                "0",
+                "0",
+                "0.059883954",
+                "0"
+            ],
+            "CGGCUUUGAGAAGUGCCUCAU",
+            "00014",
+            1.5
+        ],
+        [
+            "21ur-10918",
+            "453-473",
+            7,
+            "<mark id='g'>1</mark>,<mark id='b'>4</mark>,<mark id='b'>6</mark>,<mark id='b'>8</mark>,<mark>15</mark>,<mark id='b'>17</mark>,<mark>21</mark>",
+            "15,21",
+            0,
+            2,
+            2,
+            2,
+            "<span style=\"white-space:nowrap\">5' AAAUGGAAAAUUUG<span id='L'>|</span>AGAGCA<span id='L'>|</span>G 3'",
+            "3' <mark>A</mark>UUA<mark id='b'>U</mark>C<mark>C</mark>UUUAAA<mark id='b'>U</mark><span id='L'>|</span>U<mark id='b'>U</mark>U<mark id='b'>U</mark>GU<span id='L'>|</span><mark id='g'>U</mark> 5'</span>",
+            [
+                "0",
+                "12.16179163",
+                "6.004124083",
+                "0.718607454",
+                "0"
+            ],
+            "AUUAUCCUUUAAAUUUUUGUU",
+            "00453",
+            0.0
+        ],
+        [
+            "(type2) 21ur-7636",
+            "692-712",
+            6,
+            "<mark id='b'>6</mark>,<mark id='b'>7</mark>,<mark>8</mark>,<mark id='b'>9</mark>,<mark id='b'>10</mark>,<mark id='b'>16</mark>",
+            "8",
+            0,
+            2,
+            1,
+            3,
+            "<span style=\"white-space:nowrap\">5' AAUAAGACAUUUGU<span id='L'>|</span>GGAAGA<span id='L'>|</span>A 3'",
+            "3' UUAUU<mark id='b'>U</mark>UGUAA<mark id='b'>G</mark><mark id='b'>U</mark><mark>U</mark><span id='L'>|</span><mark id='b'>U</mark><mark id='b'>U</mark>UUCU<span id='L'>|</span>U 5'</span>",
+            [
+                "0.269740413",
+                "1.658426131",
+                "0.250171837",
+                "0",
+                "0"
+            ],
+            "UUAUUUUGUAAGUUUUUUCUU",
+            "00692",
+            0.5
+        ]
+    ],
+    "options": {
+        "core_non_GU": 0,
+        "core_GU": 2,
+        "non_core_non_GU": 2,
+        "non_core_GU": 3,
+        "total": 6,
+        "nematodeType": "C.elegans",
+        "pts": [
+            "false",
+            0
+        ]
+    },
+    "CDS1": 2,
+    "CDS2": 1570,
+    "CDS_region": "2 - 1570",
+    "Tscore": [
+        7,
+        1.5,
+        2,
+        1.5
+    ]
+}
