@@ -1,0 +1,82 @@
+
+.table1 , .table2{
+    height: 500px;
+    overflow-y: auto;
+    direction:ltr; 
+    justify-content: center;
+}
+
+#b1 {
+    padding-left:320px;
+}
+#btn2 {
+    position:absolute;
+    left:71%;
+    transform: translate(0px,-26px);
+}
+td{
+    width:630px;
+    height:60px;
+}
+.bg-img {
+    /* background-image: url("/static/images/tomopteris.jpg"); */
+    max-width:auto;
+    margin-bottom:30px;
+}
+
+h2 {
+    background-color:black;
+    text-shadow: black,0.1em,0.1em,0.2em;
+}
+
+
+#c1, #c2{
+    padding-top:6px;
+    color:black;
+    caption-side: top;
+    font-size:30px;
+    /* padding-right:130px; */
+    text-align:center;
+}
+
+body {
+/*     background-image:url("/static/images/8-gene.jpg"); */
+    -webkit-background-size-: cover;
+    max-width:auto;
+}
+
+th {
+    color:skyblue;
+}
+.display-4{
+    color:darkgray;
+}
+
+td {
+    color:black;
+}
+
+
+#b {
+    background-color:  lightblue;
+}
+
+#g {
+    background-color: lightgreen;
+}
+
+#L {
+    color:red;
+}
+
+#t3 {
+    text-align: center;
+}
+
+.table3 {
+    margin:0 auto;
+}
+
+tr {
+    font-size:large;
+}
